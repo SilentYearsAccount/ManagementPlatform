@@ -1,6 +1,5 @@
 package com.linln.modules.system.repository;
 
-import com.linln.modules.system.domain.Dept;
 import com.linln.modules.system.domain.User;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
@@ -26,13 +25,6 @@ public interface UserRepository extends BaseRepository<User, Long>, JpaSpecifica
      * @return 用户数据
      */
     public User findByUsernameAndIdNot(String username, Long id);
-
-    /**
-     * 查找多个相应部门的用户列表
-     * @param dept 部门对象
-     * @return 用户列表
-     */
-    public List<User> findByDept(Dept dept);
 
     /**
      * 删除多条数据

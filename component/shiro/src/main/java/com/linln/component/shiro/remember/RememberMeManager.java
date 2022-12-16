@@ -78,7 +78,6 @@ public class RememberMeManager extends CookieRememberMeManager {
         }
 
         // 更新“记住我”用户数据，使部门及角色超时
-        principal.setDept(new RememberMeDept());
         principal.setRoles(new PersistentSet());
         return collection;
     }

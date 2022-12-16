@@ -70,7 +70,6 @@ public class UserController {
         // 封装数据
         model.addAttribute("list", list.getContent());
         model.addAttribute("page", list);
-        model.addAttribute("dept", user.getDept());
         return "/system/user/index";
     }
 

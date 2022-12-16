@@ -20,12 +20,6 @@
             <artifactId>common</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--开发模块，上线部署可以注释掉-->
-        <dependency>
-            <groupId>com.linln</groupId>
-            <artifactId>devtools</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.linln.modules</groupId>
             <artifactId>system</artifactId>

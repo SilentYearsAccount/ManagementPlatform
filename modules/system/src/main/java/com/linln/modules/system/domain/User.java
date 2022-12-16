@@ -64,11 +64,6 @@ public class User implements Serializable {
     @Excel(value = "状态", dict = "DATA_STATUS")
     private Byte status = StatusEnum.OK.getCode();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_id")
-    @JsonIgnore
-    private Dept dept;
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "sys_user_role",
             joinColumns = @JoinColumn(name = "user_id"),

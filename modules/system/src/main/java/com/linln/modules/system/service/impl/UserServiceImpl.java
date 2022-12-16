@@ -2,10 +2,8 @@ package com.linln.modules.system.service.impl;
 
 import com.linln.common.data.PageSort;
 import com.linln.common.enums.StatusEnum;
-import com.linln.modules.system.domain.Dept;
 import com.linln.modules.system.domain.User;
 import com.linln.modules.system.repository.UserRepository;
-import com.linln.modules.system.service.DeptService;
 import com.linln.modules.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,9 +26,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private DeptService deptService;
 
     /**
      * 根据用户名查询用户数据
@@ -87,19 +82,6 @@ public class UserServiceImpl implements UserService {
                 }
                 if(user.getNickname() != null){
                     preList.add(cb.like(root.get("nickname").as(String.class), "%"+ user.getNickname() + "%"));
-                }
-                if(user.getDept() != null){
-                    // 联级查询部门
-                    Dept dept = user.getDept();
-                    List<Long> deptIn = new ArrayList<>();
-                    deptIn.add(dept.getId());
-                    List<Dept> deptList = deptService.getListByPidLikeOk(dept.getId());
-                    deptList.forEach(item -> deptIn.add(item.getId()));
-
-                    Join<User, Dept> join = root.join("dept", JoinType.INNER);
-                    CriteriaBuilder.In<Long> in = cb.in(join.get("id").as(Long.class));
-                    deptIn.forEach(in::value);
-                    preList.add(in);
                 }
 
                 // 数据状态

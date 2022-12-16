@@ -1,6 +1,5 @@
 package com.linln.component.shiro.remember;
 
-import com.linln.modules.system.domain.Dept;
 import org.hibernate.HibernateException;
 import org.hibernate.LazyInitializationException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
@@ -15,7 +14,7 @@ import java.io.Serializable;
  * @author 小懒虫
  * @date 2019/10/30
  */
-public class RememberMeDept extends Dept implements HibernateProxy {
+public class RememberMeDept implements HibernateProxy {
 
     @Override
     public Object writeReplace() {
